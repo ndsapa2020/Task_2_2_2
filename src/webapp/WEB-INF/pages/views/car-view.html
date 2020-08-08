@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${headline}"></title>
+</head>
+<body>
+<div th:align = "center">
+    <h1 th:text="${helloText}"></h1>
+        <table th:border="1" th:align="center">
+            <thead>
+            <tr>
+                <th th:width="100">Id of Car</th>
+                <th th:width="100">Brand</th>
+                <th th:width="100">Model</th>
+                <th th:width="100">Year</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each = "car: ${listCars}">
+                <td th:text = "${car.id}" th:align="center">Car Id</td>
+                <td th:text = "${car.name}" th:align="center">Brand</td>
+                <td th:text = "${car.model}" th:align="center">Model</td>
+                <td th:text = "${car.year}" th:align="center">Year</td>
+            </tr>
+            </tbody>
+        </table>
+<h2><a th:text="${returnText}" href="/">Return to Start page</a></h2>
+</div>
+</body>
+</html>

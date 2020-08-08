@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index page</title>
+</head>
+<body>
+<div th:align="center">
+    <th:block th:each="msg : ${messages}">
+        <h2 th:text="${msg}"></h2>
+    </th:block>
+        <h3>Go to Car Data Base </h3>
+        <h4> <a href="/cars?locale=en">locale=en request</a> </h4>
+        <h3>Открыть базу данных машин</h3>
+        <h4> <a href="/cars?locale=ru">locale=ru request</a> </h4>
+        <h3>Go to Car Data Base </h3>
+        <h4> <a href="/cars">default request</a> </h4>
+</div>
+</body>
+</html>
