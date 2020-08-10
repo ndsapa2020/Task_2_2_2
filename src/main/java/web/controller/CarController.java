@@ -43,12 +43,17 @@ public class CarController {
     @GetMapping
     public String startCar(@RequestParam(name = "locale", defaultValue = "en", required = false) String locale,
                            ModelMap modelMap) {
-        ResourceBundle bundle = ResourceBundle.getBundle("messages_" + locale);
-        modelMap.addAttribute("headline", bundle.getString("headline"));
+      
+        if (locale.equals("ru")) {
+            modelMap.addAttribute("headline", "Таблица машин");
+            modelMap.addAttribute("helloText", "Привет, это список машин");
+            modelMap.addAttribute("returnText", "На главную");
 
-        modelMap.addAttribute("helloText", bundle.getString("helloText"));
-        modelMap.addAttribute("returnText", bundle.getString("returnText"));
-
+        } else {
+            modelMap.addAttribute("headline", "Cars table");
+            modelMap.addAttribute("helloText", "It's a Car table");
+            modelMap.addAttribute("returnText","Home page");
+        }
         List<Car> listCars = carService.listCars();
         modelMap.addAttribute("listCars", listCars);
         return "views/car-view";
